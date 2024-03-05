@@ -1,0 +1,16 @@
+version: '3'
+services:
+  bot:
+    restart: always
+    build:
+      context: .
+      dockerfile: dockerfile
+    # マウントさせたいディレクトリ名
+    volumes: 
+      - .:/usr/src/
+    # dockerのコンテナ名
+    container_name: 'sample_slack_code'
+    # dockerに接続した時のディレクトリ指定
+    working_dir: /usr/src/
+    tty: true
+    init: true
